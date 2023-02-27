@@ -104,7 +104,7 @@ const Login = () => {
   return (
     <Container>
         <Wrapper>
-            <Title>SIGN IN</Title>
+            <Title>SIGN IN NOW</Title>
             <Form>
                 <Input placeholder="Username" onChange={(e)=>setUsername(e.target.value)}/>
                 <Input placeholder="Password" type="password" onChange={(e)=>setPassword(e.target.value)}/>
