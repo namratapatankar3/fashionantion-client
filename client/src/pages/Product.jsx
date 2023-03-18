@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 const Container = styled.div`
-
+ background-color:#f6f5f3;
 `
 const Wrapper = styled.div`
     padding: 50px;
@@ -36,7 +36,10 @@ const InfoContainer = styled.div`
     ${mobile({ padding: "10px" })}
 `
 const Title = styled.h1`
-    font-weight: 200;
+    font-weight: 500;
+    font-size:30px;
+   font-family: 'Roboto', sans-serif;
+    
 `
 const Desc = styled.p`
     margin: 20px 0;
@@ -146,9 +149,10 @@ const Product = () => {
   };
 
   return (
-    <Container>
+      <Container>
+            <Announcement />
         <Navbar />
-        <Announcement />
+      
         <Wrapper>
             <ImageContainer>
                 <Image src={product.img}/>

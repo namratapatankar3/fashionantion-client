@@ -4,9 +4,11 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import { mobile } from '../responsive';
-
+import { Link } from 'react-router-dom';
+import { categories } from '../data';
 const Container = styled.div`
     display: flex;
+   
     ${mobile({ flexDirection: "column" })}
 `
 const Left = styled.div`
@@ -18,6 +20,9 @@ const Left = styled.div`
 const Logo = styled.h1``
 const Desc = styled.p`
     margin: 20px 0;
+    font-family:cursive,Sans-serif;
+    font-style: italic;
+    color:#FFC300 ;
 `
 const SocialContainer = styled.div`
     display: flex;
@@ -36,6 +41,7 @@ const SocialIcon = styled.div`
 const Center = styled.div`
     flex: 1;
     padding: 20px;
+    margin: 16px 0;
     ${mobile({ display: "none" })}
 `
 const Title = styled.h3`
@@ -46,15 +52,22 @@ const List = styled.ul`
     padding: 0;
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
+   // flex-wrap: wrap;
+   flex-direction:column
+   
 `
 const ListItem = styled.li`
     width: 50%;
     margin-bottom: 10px;
+    cursor:pointer;
+    textDecoration: 'none';
+    color:'inherit';
+
 `
 const Right = styled.div`
     flex: 1;
     padding: 20px;
+    margin: 16px 0;
     ${mobile({ backgroundColor: "lightgray" })}
 `
 const ContactItem = styled.div`
@@ -72,11 +85,50 @@ const Footer = () => {
         <Left>
             <Logo>FashioNation</Logo>
             <Desc>
-                There are many variations of passages of Lorem Ipsum available, but
-                the majority have suffered alteration in some form, by injected
-                humour, or randomised words which don’t look even slightly believable.
+                We are bringing a change and you are part of it.
             </Desc>
-            <SocialContainer>
+            {/* <SocialContainer>
+                <SocialIcon color='3B5999'>
+                    <FacebookIcon />
+                </SocialIcon>
+                <SocialIcon color='E4405F'>
+                    <InstagramIcon />
+                </SocialIcon>
+                <SocialIcon color='55ACEE'>
+                    <TwitterIcon />
+                </SocialIcon>
+                <SocialIcon color='E60023'>
+                    <PinterestIcon />
+                </SocialIcon>
+            </SocialContainer> */}
+        </Left>
+        <Center>
+            <Title>QUICK LINKS</Title>
+            <List>
+                  
+                  <Link to='/cart' style={{ textDecoration: 'none',color:'inherit' }}><ListItem>CART</ListItem></Link> 
+              <Link to='/favorite' style={{ textDecoration: 'none',color:'inherit' }}><ListItem>WISHLIST</ListItem></Link>
+                {categories.map((item) => {
+                      return(<Link to={`/products/${item.cat}`} style={{ textDecoration: 'none',color:'inherit'}}>
+                          <ListItem>{item.cat } </ListItem>
+                  </Link>)
+                  })}
+                
+                 </List>
+        </Center>
+        <Right>
+            <Title>CONTACT</Title>
+            <ContactItem>
+                Arihant, near Holiday inn express, Pune
+            </ContactItem>
+            <ContactItem>
+                +91 9876543210
+            </ContactItem>
+            <ContactItem>
+                fashionation@gmail.com
+            </ContactItem>
+              {/* <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" /> */}
+              <SocialContainer>
                 <SocialIcon color='3B5999'>
                     <FacebookIcon />
                 </SocialIcon>
@@ -90,34 +142,6 @@ const Footer = () => {
                     <PinterestIcon />
                 </SocialIcon>
             </SocialContainer>
-        </Left>
-        <Center>
-            <Title>Useful Links</Title>
-            <List>
-                <ListItem>Home</ListItem>
-                <ListItem>Cart</ListItem>
-                <ListItem>Man Fashion</ListItem>
-                <ListItem>Woman Fashion</ListItem>
-                <ListItem>Accessories</ListItem>
-                <ListItem>My Account</ListItem>
-                <ListItem>Order Tracking</ListItem>
-                <ListItem>Wishlist</ListItem>
-                <ListItem>Wishlist</ListItem>
-                <ListItem>Terms</ListItem>
-            </List>
-        </Center>
-        <Right>
-            <Title>Contact</Title>
-            <ContactItem>
-                1234, ABC Street, XYZ, India
-            </ContactItem>
-            <ContactItem>
-                +91 9876543210
-            </ContactItem>
-            <ContactItem>
-                contact@gmail.com
-            </ContactItem>
-            <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
         </Right>
     </Container>
   )

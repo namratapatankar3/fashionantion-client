@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'; 
 import { useSelector } from "react-redux";
 import Favorite from "./pages/Favorite";
+import './App.css'
 function App() {
 
   const user = useSelector((state) => state.user.currentUser);

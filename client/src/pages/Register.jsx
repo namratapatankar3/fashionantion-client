@@ -27,6 +27,8 @@ const Title = styled.h1`
     font-weight: 400;
     text-align:center;
     color: teal;
+    margin-top:20px;
+    margin-bottom:15px;
 `
 const Form = styled.form`
     display: flex;
@@ -35,7 +37,7 @@ const Form = styled.form`
 const Input = styled.input`
     flex: 1;
     min-width: 40%;
-    margin: 20px 10px 0 0;
+    margin: 20px 10px 10px 10px;
     padding: 10px;
     border-radius: 20px;
       background-color: white;

@@ -12,6 +12,7 @@ import { categories } from '../data';
 import PersonIcon from '@mui/icons-material/Person';
 const Container = styled.div`
     height: 70px;
+    
     ${mobile({ height: "50px" })}
 `
 
@@ -53,6 +54,7 @@ const Input = styled.input`
     height:23px;
     color:black;
     background-color:#f6f5f3;
+   
      &:focus {
      outline: none;
    
