@@ -9,7 +9,9 @@ import StripeCheckout from 'react-stripe-checkout';
 
 const KEY = process.env.REACT_APP_STRIPE;
 
-const Container = styled.div``;
+const Container = styled.div`
+  background-color:#f6f5f3;
+`;
 
 const Wrapper = styled.div`
   padding: 20px;

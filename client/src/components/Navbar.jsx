@@ -41,10 +41,10 @@ const SearchContainer = styled.div`
     display: flex;
     align-items: center;
     margin-left: 10px;
-  padding: 5px;
+    padding: 5px;
     border-radius:20px;
-  &:focus{
-  outline: 1px dashed red;
+    &:focus{
+        outline: 1px dashed red;
 }
 `
 
@@ -139,7 +139,9 @@ const Navbar = () => {
                   </Link>
                   <Link to="/cart" style={{ textDecoration: 'none',color:'inherit'  }}>
                     <MenuItem>
-                           <ShoppingCartOutlinedIcon />
+                        <Badge badgeContent={quantity} color="primary">
+                            <ShoppingCartOutlinedIcon />
+                        </Badge>
                     </MenuItem>
                   </Link>
                  

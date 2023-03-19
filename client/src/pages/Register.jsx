@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { mobile } from '../responsive';
 import {useHistory} from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { register } from '../redux/apiCalls';
+
 const Container = styled.div`
     width: 100vw;
     height: 100vh;
@@ -64,27 +68,73 @@ const Button = styled.button`
 
 
 const Register = () => {
-    const history=useHistory()
-    const createHandler = () => {
-        history.push('/')
+    const history=useHistory();
+
+    const [user, setUser] = useState({
+      username: "",
+      fullname: "",
+      email: "",
+      password: "",
+      phone: "",
+      address: "",
+      gender: "",
+    })
+
+    const dispatch = useDispatch();
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      register(dispatch,user);
+      history.push('/');
     }
+
   return (
     <Container>
         <Wrapper>
             <Title>CREATE AN ACCOUNT</Title>
-            <Form>
-                <Input placeholder="First Name"/>
-                <Input placeholder="Last Name"/>
-                <Input placeholder="Username"/>
-                <Input placeholder="Email ID"/>
-                <Input placeholder="Password"/>
-                <Input placeholder="Confirm Password"/>
-                  <Agreement>
+            <Form onSubmit={handleSubmit}>
+                <Input 
+                  placeholder="Username"
+                  type="text"
+                  value={user.username}
+                  onChange={(e) => setUser({ ...user, username: e.target.value })}
+                />
+                <Input 
+                  placeholder="Full Name"
+                  type="text"
+                  value={user.fullname}
+                  onChange={(e) => setUser({ ...user, fullname: e.target.value })}
+                />
+                <Input 
+                  placeholder="Email"
+                  type="email"
+                  value={user.email}
+                  onChange={(e) => setUser({ ...user, email: e.target.value })}
+                />
+                <Input 
+                  placeholder="Password"
+                  type="password"
+                  value={user.password}
+                  onChange={(e) => setUser({ ...user, password: e.target.value })}
+                />
+                <Input 
+                  placeholder="Confirm Password"
+                  type="password"
+                  value={user.password}
+                  onChange={(e) => setUser({ ...user, password: e.target.value })}
+                />
+                <Input 
+                  placeholder="Phone No."
+                  type="text"
+                  value={user.phone}
+                  onChange={(e) => setUser({ ...user, phone: e.target.value })}
+                />
+                <Agreement>
                       <input type="checkbox"/>
                       By creating an account, I consent to the processing of my personal
                     data in accordance with the <b>PRIVACY POLICY</b>
                 </Agreement>
-                <Button onClick={createHandler}>CREATE</Button>
+                <Button type='submit'>CREATE</Button>
             </Form>
         </Wrapper>
     </Container>

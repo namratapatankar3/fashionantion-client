@@ -3,19 +3,21 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 import Product from './Product';
+import { mobile } from '../responsive.js';
 
 const Container = styled.div`
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    
+    justify-content: center;
+    gap: 25px;
+    ${mobile({ gap:0 })}
 `
 const Heading = styled.h1`
   margin: 35px 22px 0px;
 `
 
-const Products = ({cat, filters, sort}) => {
+const Products = ({cat, filters, sort, count}) => {
 
   const[products,setProducts] = useState([]);
   const[filteredProducts,setFilteredProducts] = useState([]);
@@ -71,7 +73,7 @@ const Products = ({cat, filters, sort}) => {
     <Container>
         { cat 
           ? filteredProducts.map((item) => (<Product item={item} id={item.id} />)) 
-          : products.slice(0,10).map((item) => (<Product item={item} id={item.id} />))
+          : products.slice(0,count).map((item) => (<Product item={item} id={item.id} />))
         }
       </Container>
     </>

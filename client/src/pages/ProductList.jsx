@@ -13,6 +13,7 @@ const Container = styled.div`
 borderRadius: '4';
   border: '1px solid #f6f6f6';
   boxShadow: '0 2px 4px rgba(0, 0, 0, .125)';
+  background-color:#f6f5f3;
 `
 const Title = styled.h1`
     margin: 20px;
